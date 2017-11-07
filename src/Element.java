@@ -4,7 +4,17 @@ public class Element{
 
     public static void main(String[] args) throws IOException{ 
         HashMap <String, String> elements = new HashMapCaseInsensitive();
-        String filename = args[0];
+        if(args.length > 1 || args == null){
+            System.out.println("Enter one file name");
+            System.exit(1);
+        }
+        String filename = null;
+        try{
+            filename = args[0];
+        } catch(Exception e){
+            System.out.println("Usage: <filename>");
+            System.exit(1);
+        }
         createHashmap(elements);  
         readInputFile(filename, elements);      
     }
@@ -25,19 +35,20 @@ public class Element{
             System.out.println(name);
             for (int i = 0; i < name.length(); i++){
                 try{
-
                     if(elements.containsKey(name.charAt(i))){
                         System.out.print(name.charAt(i));
                         System.out.print("-");
                         System.out.println(elements.get(name.charAt(i)));
                     }
-                
                     else if(elements.containsKey(name.substring(i,i+2))){
                             System.out.print(name.substring(i,i+2));
                             System.out.print("-");
                             System.out.println(elements.get(name.substring(i,i+2)));
-                            i= i +2;                        
-                        }                    
+                            i = i + 2;                        
+                        }    
+                    else {
+                        break;
+                    }                
                     
                 } catch(Exception e){
 
