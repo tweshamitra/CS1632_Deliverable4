@@ -33,23 +33,40 @@ public class Element{
         while(s.hasNext()){
             String name = s.nextLine();
             System.out.println(name);
+            ArrayList<String> symbols = new ArrayList<String>();
+            String symbol= "";
+            boolean clear = false;
             for (int i = 0; i < name.length(); i++){
                 try{
                     if(elements.containsKey(name.charAt(i))){
-                        System.out.print(name.charAt(i));
-                        System.out.print("-");
-                        System.out.println(elements.get(name.charAt(i)));
+                        symbol = "" + name.charAt(i);
+                        symbols.add(symbol);
                     }
                     else if(elements.containsKey(name.substring(i,i+2))){
-                            System.out.print(name.substring(i,i+2));
-                            System.out.print("-");
-                            System.out.println(elements.get(name.substring(i,i+2)));
-                            i = i + 2;                        
+                        symbol = name.substring(i, i+2);
+                        symbols.add(symbol);
+                        i++;                        
                         }    
+                    else if(name.charAt(i) == ' '){
+                        continue;
+                    }
                     else {
+                        System.out.println("here");
+                        clear = true;
+                        symbols.clear();
                         break;
                     }                
                     
+                    for(String sym : symbols){
+                        if(clear == true){
+                            symbols.clear();
+                        }
+                        else{
+                            System.out.print(sym + " ");
+                        }
+                    }
+                    
+                    symbols.clear();
                 } catch(Exception e){
 
                 }
