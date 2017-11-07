@@ -3,10 +3,10 @@ import java.io.*;
 public class Element{
 
     public static void main(String[] args) throws IOException{ 
-        HashMap <String, String> elements = new HashMap<>();
+        HashMap <String, String> elements = new HashMapCaseInsensitive();
         String filename = args[0];
-        readInputFile(filename);
-        createHashmap(elements);        
+        createHashmap(elements);  
+        readInputFile(filename, elements);      
     }
 
     public static void createHashmap(HashMap elements) throws IOException {        
@@ -18,10 +18,34 @@ public class Element{
         }
     }
 
-    public static void readInputFile(String filename) throws IOException{
+    public static void readInputFile(String filename, HashMap elements) throws IOException{
         Scanner s = new Scanner(new File(filename));
         while(s.hasNext()){
             String name = s.nextLine();
-        }
+            System.out.println(name);
+            for (int i = 0; i < name.length(); i++){
+                try{
+
+                    if(elements.containsKey(name.charAt(i))){
+                        System.out.print(name.charAt(i));
+                        System.out.print("-");
+                        System.out.println(elements.get(name.charAt(i)));
+                    }
+                
+                    else if(elements.containsKey(name.substring(i,i+2))){
+                            System.out.print(name.substring(i,i+2));
+                            System.out.print("-");
+                            System.out.println(elements.get(name.substring(i,i+2)));
+                            i= i +2;                        
+                        }                    
+                    
+                } catch(Exception e){
+
+                }
+                
+            }
+            System.out.println(" ");
+       }
     }
+  
 }
