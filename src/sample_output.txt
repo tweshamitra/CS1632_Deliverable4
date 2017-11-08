@@ -1,7 +1,4 @@
-Could not make name, John Jacob Jingleheimer Schmidt, out of elements
-
-
-
+Could not create name, John Jacob Jingleheimer Schmidt, out of elements
 
 La - la - la - la - la - la - la - la - la - la - 
 
@@ -11,7 +8,8 @@ La - b - o - o - n -
 
 Lanthanum - Boron - Oxygen - Oxygen - Nitrogen - 
 
-Could not make name, Art Arterson, out of elements
+Could not create name, Art Arterson, out of elements
+
 B - o - b - 
 
 Boron - Oxygen - Boron - 
@@ -32,7 +30,8 @@ Al - B - o - b - b - er - s - o - n -
 
 Aluminum - Boron - Oxygen - Boron - Boron - Erbium - Sulfur - Oxygen - Nitrogen - 
 
-Could not make name, Al Allerson, out of elements
+Could not create name, Al Allerson, out of elements
+
 Al - Al - li - s - o - n - 
 
 Aluminum - Aluminum - Lithium - Sulfur - Oxygen - Nitrogen - 
@@ -65,7 +64,8 @@ P - o - w - P - o - w - er - s - o - n -
 
 Phosphorus - Oxygen - Tungsten - Phosphorus - Oxygen - Tungsten - Erbium - Sulfur - Oxygen - Nitrogen - 
 
-Could not make name, Nick Nickelback, out of elements
+Could not create name, Nick Nickelback, out of elements
+
 N - i - c - k - P - o - w - er - s - 
 
 Nitrogen - Iodine - Carbon - Potassium - Phosphorus - Oxygen - Tungsten - Erbium - Sulfur - 
@@ -82,12 +82,10 @@ B - o - b - C - re - at -
 
 Boron - Oxygen - Boron - Carbon - Rhenium - Astatine - 
 
-Could not make name, Loopy Creat, out of elements
+Could not create name, Loopy Creat, out of elements
 
+Could not create name, Tsar Bomba, out of elements
 
-
-
-Could not make name, Tsar Bomba, out of elements
 Ts - ar - B - o - o - 
 
 Tennessine - Argon - Boron - Oxygen - Oxygen - 

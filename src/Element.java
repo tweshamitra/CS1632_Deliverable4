@@ -3,6 +3,7 @@ import java.io.*;
 public class Element{
 
     public static void main(String[] args) throws IOException{ 
+       
         HashMap <String, String> elements = new HashMapCaseInsensitive();
         if(args.length > 1 || args == null){
             System.out.println("Enter one file name");
@@ -16,7 +17,7 @@ public class Element{
             System.exit(1);
         }
         createHashmap(elements);  
-        readInputFile(filename, elements);      
+        readInputFile(filename, elements);   
     }
 
     public static void createHashmap(HashMap elements) throws IOException {        
@@ -32,7 +33,7 @@ public class Element{
         try{
             s = new Scanner(new File(filename));
         }catch(FileNotFoundException e){
-            System.out.print("File " + filename + " not found");
+            System.out.print("Error: File " + filename + " not found");
             System.exit(1);
         }
         while(s.hasNext()){
@@ -55,33 +56,26 @@ public class Element{
                             continue;
                         }
                         else {
-                            System.out.println("Could not create name, " + name + ", out of elements" );
+                            System.out.println("Could not create name, " + name + ", out of elements" + "\n" );
                             clear = true;
                             break;
                         }                
                     }  
-                    for(String sym : symbols){
-                        if(clear == true){
-                            symbols.clear();
-                            break;
-                        }
-                        else{
+
+                    if(clear == false){
+                        for(String sym : symbols){ 
                             System.out.print(sym + " - ");
                         }
-                    }
-                    System.out.println("\n");
-
-                    for(String sym : symbols){
-                        if(clear == true){
-                            symbols.clear();
-                            break;
-                        }
-                        else{
+                        System.out.println("\n");
+                        for(String sym : symbols){ 
                             System.out.print(elements.get(sym) + " - ");
                         }
+                        System.out.println("\n");
+
                     }
-                    System.out.println("\n");
-                    symbols.clear();
+                    else{
+                        symbols.clear();
+                    }
                 } catch(Exception e){
 
                 }
