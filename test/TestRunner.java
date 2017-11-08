@@ -7,7 +7,8 @@ public class TestRunner{
     public static void main(String[] args){
         ArrayList<Class> classes_to_test = new ArrayList<Class>();
         boolean any_failures = false;
-        classes_to_test.add(Element.class);
+        classes_to_test.add(ElementTest.class);
+        classes_to_test.add(HashMapCaseInsensitiveTest.class);
         for(Class c: classes_to_test){
             Result r = JUnitCore.runClasses(c);
 
