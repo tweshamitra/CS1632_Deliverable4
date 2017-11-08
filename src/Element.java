@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 public class Element{
 
     public static void main(String[] args) throws IOException{ 
@@ -41,14 +42,17 @@ public class Element{
             ArrayList<String> symbols = new ArrayList<String>();
             String symbol= "";
             boolean clear = false;
+            int i;
                 try{
-                    for (int i = 0; i < name.length(); i++){
+                    for (i = 0; i < name.length(); i++){
                         if(elements.containsKey(name.charAt(i))){
                             symbol = "" + name.charAt(i);
-                            symbols.add(symbol);
+                            symbols.add(symbol.toUpperCase());
                         }
                         else if(elements.containsKey(name.substring(i,i+2))){
+                            //System.out.println(name.substring(i, i+2));
                             symbol = name.substring(i, i+2);
+                            
                             symbols.add(symbol);
                             i++;                        
                             }    
@@ -63,12 +67,28 @@ public class Element{
                     }  
 
                     if(clear == false){
-                        for(String sym : symbols){ 
-                            System.out.print(sym + " - ");
+                        for(int x = 0; x <  symbols.size(); x++){
+                            String sym = symbols.get(x); 
+                            //System.out.println(sym.length());
+                            if(sym.length() == 2 ){
+                                System.out.print(sym.substring(0,1).toUpperCase() + sym.substring(1));
+                            }
+                            else{
+                                System.out.print(sym);
+                            }
+                            if(x != symbols.size() -1 ){
+                                System.out.print(" - ");
+                            }
                         }
+
                         System.out.println("\n");
-                        for(String sym : symbols){ 
-                            System.out.print(elements.get(sym) + " - ");
+
+                        for(int x = 0; x <  symbols.size(); x++){ 
+                            String sym = symbols.get(x);
+                            System.out.print(elements.get(sym));
+                            if(x != symbols.size() -1 ){
+                                System.out.print(" - ");
+                            }
                         }
                         System.out.println("\n");
 
