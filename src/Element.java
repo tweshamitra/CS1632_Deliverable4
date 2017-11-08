@@ -11,33 +11,16 @@ public class Element{
             System.exit(1);
         }
         String filename = null;
+        Scanner s = null;
         try{
             filename = args[0];
         } catch(Exception e){
             System.out.println("Error: File not found");
             System.exit(1);
         }
-        createHashmap(elements);  
-        readInputFile(filename, elements);   
-    }
-
-    public static void createHashmap(HashMap elements) throws IOException {        
-        Scanner s = new Scanner(new File("elements.txt")).useDelimiter("\\s*,\\s*");
-        while(s.hasNext()){            
-            String line = s.next();
-            String[] parts = line.split(":");
-            elements.put(parts[0], parts[1]);
-        }
-    }
-    public static void readInputFile(String filename, HashMap elements) throws IOException{
-        Scanner s = null;
-        try{
-            s = new Scanner(new File(filename));
-        }catch(FileNotFoundException e){
-            System.out.print("Error: File " + filename + " not found");
-            System.exit(1);
-        }
-        while(s.hasNext()){
+        createHashmap(elements, s);  
+        s = readInputFile(filename, s); 
+         while(s.hasNext()){
             String name = s.nextLine();
             ArrayList<String> symbols = new ArrayList<String>();
             String symbol= "";
@@ -49,10 +32,9 @@ public class Element{
                             symbols.add(symbol.toUpperCase());
                         }
                         else if(elements.containsKey(name.substring(i,i+2))){
-                            symbol = name.substring(i, i+2);
-                            
-                            symbols.add(symbol);
-                            i++;                        
+                                symbol = name.substring(i, i+2);
+                                symbols.add(symbol);
+                                i++;                        
                             }    
                         else if(name.charAt(i) == ' '){
                             continue;
@@ -63,7 +45,6 @@ public class Element{
                             break;
                         }                
                     }  
-
                     if(clear == false){
                         for(int x = 0; x <  symbols.size(); x++){
                             String sym = symbols.get(x); 
@@ -96,5 +77,25 @@ public class Element{
                 } catch(Exception e){
                 }
             }
+          
+    }
+
+    public static void createHashmap(HashMap elements, Scanner s) throws IOException {        
+        s = new Scanner(new File("elements.txt")).useDelimiter("\\s*,\\s*");
+        while(s.hasNext()){            
+            String line = s.next();
+            String[] parts = line.split(":");
+            elements.put(parts[0], parts[1]);
+        }
+    }
+    public static Scanner readInputFile(String filename, Scanner s) throws IOException{
+        Scanner scanner = s;
+        try{
+            scanner = new Scanner(new File(filename));
+        }catch(FileNotFoundException e){
+            System.out.print("Error: File " + filename + " not found");
+            System.exit(1);
+        }
+        return scanner;
         }
 }
